@@ -2,14 +2,16 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
+    // 首页
     path: '/',
-    name: 'home'
-    // component: HomeView
+    name: 'home',
+    component: () => import('@/views/Home')
   },
   {
-    path: '/about',
-    name: 'about'
-    // component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    // 歌单
+    path: '/playlist',
+    name: 'playlist',
+    component: () => import('@/views/PlayList')
   }
 ]
 
