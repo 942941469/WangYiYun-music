@@ -26,6 +26,7 @@
 <script setup>
 import { getPlayRecommendList } from '@/api/home'
 import { onMounted, reactive, toRefs } from 'vue'
+import { changeCount } from '@/views/hook/changeCount'
 onMounted(async () => {
   // 获取推荐歌单 limit为数据量
   const { data, status } = await getPlayRecommendList({ limit: 10 })
@@ -37,10 +38,6 @@ onMounted(async () => {
 const recommendPlayList = reactive({
   playlist: []
 })
-// 处理播放量数据
-const changeCount = (num) => {
-  return (num / 10000).toFixed(2) + '万'
-}
 const { playlist } = { ...toRefs(recommendPlayList) }
 </script>
 

@@ -5,13 +5,13 @@ const routes = [
     // 首页
     path: '/',
     name: 'home',
-    component: () => import('@/views/Home')
+    component: () => import('@/views/layout/Home')
   },
   {
     // 歌单
     path: '/playlist',
     name: 'playlist',
-    component: () => import('@/views/PlayList')
+    component: () => import('@/views/layout/PlayList')
   }
 ]
 
