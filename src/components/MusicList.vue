@@ -20,10 +20,10 @@
     </div>
     <div class="list">
       <div class="listItem" v-for="(item, index) in musicList" :key="item.id">
-        <div class="itemLeft">
+        <div class="itemLeft" @click="playMusic(index)">
           <span class="index">{{index + 1}}</span>
           <div class="musicName">
-            <span class="song">{{item.name}}</span>
+            <span class="song">{{item.al.name}}</span>
             <div class="singer" >
               <span v-for="author in item.ar" :key="author.id">{{author.name}}&nbsp;</span>
             </div>
@@ -47,10 +47,16 @@
 <script setup>
 import { toRefs, defineProps } from 'vue'
 import { changeCount } from '@/views/hook/changeCount'
+import { useStore } from 'vuex'
 const props = defineProps({
   subscribedCount: Number,
   musicList: Array
 })
+const store = useStore()
+// 播放列表音乐
+const playMusic = (index) => {
+  store.dispatch('playList/UPDATEPLAYLIST', { musicList, index })
+}
 const { subscribedCount, musicList } = toRefs(props)
 </script>
 
@@ -103,8 +109,9 @@ const { subscribedCount, musicList } = toRefs(props)
   }
 }
 .list{
-  margin-top: .5rem;
+  margin-top: .2rem;
   width: 100%;
+  padding-bottom: 1.4rem;
   .listItem{
     height: 1rem;
     width: 100%;
@@ -126,6 +133,7 @@ const { subscribedCount, musicList } = toRefs(props)
           width: 4.54rem;
           height: .4rem;
           font-weight: 700;
+          overflow: hidden;
         }
         .singer{
           span{

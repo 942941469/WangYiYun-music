@@ -172,7 +172,6 @@ const { playlist } = toRefs(sound)
     margin-top: .5rem;
     justify-content: space-between;
     span{
-      display: inline-block;
       width: 95%;
       height: 100%;
       overflow: hidden;
