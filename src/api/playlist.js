@@ -13,3 +13,10 @@ export const getPlayListMusic = (id) => {
     url: `/playlist/track/all?id=${id}&limit=20&offset=0`
   })
 }
+// 获取歌词
+export const getLyric = (id) => {
+  return service({
+    method: 'get',
+    url: `/lyric?id=${id}`
+  })
+}
