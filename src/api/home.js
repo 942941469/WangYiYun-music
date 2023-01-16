@@ -15,3 +15,17 @@ export const getPlayRecommendList = (params) => {
     params
   })
 }
+// 搜索
+export const getSearch = (keywords) => {
+  return service({
+    method: 'get',
+    url: `/search?keywords=${keywords}`
+  })
+}
+// 登录
+export const getLogin = (phone, password) => {
+  return service({
+    method: 'get',
+    url: `/login/cellphone?phone=${phone}&password=${password}`
+  })
+}

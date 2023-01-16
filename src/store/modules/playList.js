@@ -30,6 +30,10 @@ const mutations = {
     } else if (state.playListIndex === state.playList.length) {
       state.playListIndex = 0
     }
+  },
+  pushMusic(state, { music, index }) {
+    state.playList.push(music)
+    state.playListIndex = index
   }
 }
 const actions = {
@@ -41,6 +45,9 @@ const actions = {
   },
   CHANGEMUSIC({ commit }, num) {
     commit('changeMusic', num)
+  },
+  PUSHMUSIC({ commit }, { music, index }) {
+    commit('pushMusic', { music, index })
   }
 }
 const getters = {

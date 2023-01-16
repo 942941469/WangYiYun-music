@@ -64,7 +64,6 @@ const updataPlayTime = () => {
 // 获取歌曲时长
 const updataDuration = () => {
   store.dispatch('footer/UPDATADURATION', audioRef.value.duration)
-  console.log(audioRef.value.duration)
 }
 watch(playIndex, (newValue, oldValue) => {
   audioRef.value.autoplay = true

@@ -8,7 +8,15 @@ const state = {
   // 当前播放时间
   currentTime: 0,
   // 歌曲总时长
-  duration: 0
+  duration: 0,
+  // 是否登录
+  isLogin: false,
+  // 是否显示底部组件
+  isFooter: true,
+  // 登录token
+  token: '',
+  // 用户信息
+  profile: {}
 }
 const mutations = {
   upDataAlbum(state) {
@@ -22,6 +30,13 @@ const mutations = {
   },
   updataDuration(state, duraion) {
     state.duration = duraion * 1000
+  },
+  updataLogin(state, login) {
+    state.isLogin = login
+  },
+  updataToken(state, { token, profile }) {
+    state.token = token
+    state.profile = profile
   }
 }
 const actions = {
@@ -39,6 +54,13 @@ const actions = {
   },
   UPDATADURATION({ commit }, duration) {
     commit('updataDuration', duration)
+  },
+  UPDATALOGIN({ commit }, login) {
+    commit('updataLogin', login)
+  },
+  UPDATATOKEN({ commit }, { token, profile }) {
+    commit('updataToken', { token, profile })
+    localStorage.setItem('token', token)
   }
 }
 const getters = {
